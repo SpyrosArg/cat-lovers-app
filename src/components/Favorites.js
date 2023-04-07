@@ -19,7 +19,7 @@ const Favorites = () => {
   return (
     <div>
       <h1>Favorite Cats</h1>
-      {favorites.length === 0 ? (
+      {(favorites && favorites.length === 0) ? (
         <p>No favorite cats added.</p>
       ) : (
         <div className="favorites-list">
@@ -36,5 +36,3 @@ const Favorites = () => {
 };
 
 export default Favorites;
-
-  
