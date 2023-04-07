@@ -44,3 +44,4 @@ const CatModal = ({ cat, closeModal }) => {
 };
 
 export default CatModal;
+
