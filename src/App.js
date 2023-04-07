@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-dom';
 import CatList from './components/CatList';
 import CatBreedList from './components/CatBreedList';
 import Favorites from './components/Favorites';
@@ -11,13 +11,19 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" activeClassName="active-link" end>
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/breeds">Breeds</Link>
+              <NavLink to="/breeds" activeClassName="active-link">
+                Breeds
+              </NavLink>
             </li>
             <li>
-              <Link to="/favorites">Favorites</Link>
+              <NavLink to="/favorites" activeClassName="active-link">
+                Favorites
+              </NavLink>
             </li>
           </ul>
         </nav>

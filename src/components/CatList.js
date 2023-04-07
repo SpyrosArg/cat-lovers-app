@@ -6,6 +6,7 @@ const CatList = () => {
   const [cats, setCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     fetchCats();
@@ -13,7 +14,7 @@ const CatList = () => {
 
   const fetchCats = async () => {
     try {
-      const response = await axios.get('https://api.thecatapi.com/v1/images/search?limit=10');
+      const response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page}`);
       setCats(response.data);
     } catch (error) {
       console.error('Error fetching cats:', error);
@@ -21,8 +22,9 @@ const CatList = () => {
   };
 
   const loadMoreCats = async () => {
+    setPage(prevPage => prevPage + 1);
     try {
-      const response = await axios.get('https://api.thecatapi.com/v1/images/search?limit=10');
+      const response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page + 1}`);
       setCats([...cats, ...response.data]);
     } catch (error) {
       console.error('Error loading more cats:', error);
@@ -39,8 +41,9 @@ const CatList = () => {
   };
 
   return (
-    <div>
+    <div className="cat-container">
       <h1>Random Cat Images</h1>
+      <button className="load-more-cats" onClick={loadMoreCats}>Load More Cats</button>
       <div className="cat-list">
         {cats.map((cat) => (
           <img
@@ -52,7 +55,6 @@ const CatList = () => {
           />
         ))}
       </div>
-      <button onClick={loadMoreCats}>Load More Cats</button>
       {showModal && <CatModal cat={selectedCat} closeModal={closeModal} />}
     </div>
   );
