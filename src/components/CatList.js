@@ -5,7 +5,7 @@ import CatModal from './CatModal';
 const CatList = ({ breedId, showLoadMore = true }) => {
   const [cats, setCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [, setCurrentPage] = useState(1);
 
   const fetchCats = useCallback(async (page) => {
     const apiUrl = 'https://api.thecatapi.com/v1/images/search';
