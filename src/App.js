@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-do
 import CatList from './components/CatList';
 import CatBreedList from './components/CatBreedList';
 import Favorites from './components/Favorites';
+import './App.css';
 
 function App() {
   return (
@@ -11,17 +12,17 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/" activeClassName="active-link" end>
+            <NavLink to="/" end>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/breeds" activeClassName="active-link">
+            <NavLink to="/breeds">
                 Breeds
               </NavLink>
             </li>
             <li>
-              <NavLink to="/favorites" activeClassName="active-link">
+            <NavLink to="/favorites">
                 Favorites
               </NavLink>
             </li>

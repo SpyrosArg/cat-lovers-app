@@ -1,61 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import CatModal from './CatModal';
 
-const CatList = () => {
+const CatList = ({ breedId, showLoadMore = true }) => {
   const [cats, setCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [page, setPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const fetchCats = useCallback(async (page) => {
+    const apiUrl = 'https://api.thecatapi.com/v1/images/search';
+    const params = {
+      limit: 12,
+      page,
+      order: 'Random',
+      breed_id: breedId,
+    };
+
+    try {
+      const response = await axios.get(apiUrl, { params });
+      setCats((prevCats) => [...prevCats, ...response.data]);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [breedId]);
 
   useEffect(() => {
-    fetchCats();
-  }, []);
+    setCats([]);
+    fetchCats(1);
+  }, [fetchCats]);
 
-  const fetchCats = async () => {
-    try {
-      const response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page}`);
-      setCats(response.data);
-    } catch (error) {
-      console.error('Error fetching cats:', error);
-    }
+  const loadMoreCats = () => {
+    setCurrentPage((prevPage) => {
+      const nextPage = prevPage + 1;
+      fetchCats(nextPage);
+      return nextPage;
+    });
   };
 
-  const loadMoreCats = async () => {
-    setPage(prevPage => prevPage + 1);
-    try {
-      const response = await axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page + 1}`);
-      setCats([...cats, ...response.data]);
-    } catch (error) {
-      console.error('Error loading more cats:', error);
-    }
-  };
-
-  const openCatModal = (cat) => {
+  const handleCatSelect = (cat) => {
     setSelectedCat(cat);
-    setShowModal(true);
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    setSelectedCat(null);
   };
 
   return (
     <div className="cat-container">
-      <h1>Random Cat Images</h1>
-      <button className="load-more-cats" onClick={loadMoreCats}>Load More Cats</button>
       <div className="cat-list">
         {cats.map((cat) => (
           <img
             key={cat.id}
             src={cat.url}
             alt={`Cat ${cat.id}`}
-            onClick={() => openCatModal(cat)}
-            style={{ cursor: 'pointer' }}
+            onClick={() => handleCatSelect(cat)}
           />
         ))}
       </div>
-      {showModal && <CatModal cat={selectedCat} closeModal={closeModal} />}
+      {selectedCat && <CatModal cat={selectedCat} closeModal={closeModal} />}
+      {showLoadMore && (
+        <button className="load-more-cats" onClick={loadMoreCats}>
+          Load More Cats
+        </button>
+      )}
     </div>
   );
 };
