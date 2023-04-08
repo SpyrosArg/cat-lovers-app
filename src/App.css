@@ -6,13 +6,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f0f0;
+  text-align: center
 }
 
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3f51b5;
+  background-color: #191530;
   padding: 16px 0;
 }
 
@@ -41,7 +42,7 @@ nav a {
 
 nav a:hover,
 .active-link {
-  background-color: #5c6bc0;
+  background-color: #de1b76;
 }
 
 .App {
@@ -80,7 +81,7 @@ nav a:hover,
 }
 
 .load-more-cats {
-  background-color: #3f51b5;
+  background-color: #de1b76;
   color: #fff;
   font-size: 16px;
   padding: 12px 24px;
@@ -92,14 +93,15 @@ nav a:hover,
 }
 
 .load-more-cats:hover {
-  background-color: #5c6bc0;
+  background-color: #191530;
 }
 
 h1 {
   font-size: 32px;
   font-weight: bold;
-  color: #3f51b5;
+  color: #191530;
   margin: 16px 0;
+  text-align: center
 }
 
 .breed-list {
