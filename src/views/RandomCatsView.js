@@ -1,10 +1,9 @@
 import React from 'react';
-import CatList from '../CatList';
+import CatList from '../components/CatList';
 
 const RandomCatsView = () => {
   return (
     <div>
-      <h1>Random Cats</h1>
       <CatList />
     </div>
   );

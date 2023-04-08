@@ -14,6 +14,7 @@ const CatList = ({ breedId, showLoadMore = true }) => {
       page,
       order: 'Random',
       breed_id: breedId,
+      headers:{'x-api-key' :'live_t2KiIRsSzthnYXP9wZ11pnZHWmTVo3zETISZWqCeAj5IuV8nAcdYEFRnduMeL8vP'}
     };
 
     try {

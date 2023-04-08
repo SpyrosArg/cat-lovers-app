@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-dom';
-import CatList from './components/CatList';
-import CatBreedList from './components/CatBreedList';
-import Favorites from './components/Favorites';
+import RandomCatsView from './views/RandomCatsView';
+import CatBreedsView from './views/CatBreedsView';
+import FavoritesView from './views/FavoritesView';
 import './App.css';
 
 function App() {
@@ -12,17 +12,17 @@ function App() {
         <nav>
           <ul>
             <li>
-            <NavLink to="/" end>
+              <NavLink to="/" end>
                 Home
               </NavLink>
             </li>
             <li>
-            <NavLink to="/breeds">
+              <NavLink to="/breeds">
                 Breeds
               </NavLink>
             </li>
             <li>
-            <NavLink to="/favorites">
+              <NavLink to="/favorites">
                 Favorites
               </NavLink>
             </li>
@@ -30,9 +30,9 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<CatList />} />
-          <Route path="/breeds" element={<CatBreedList />} />
-          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/" element={<RandomCatsView />} />
+          <Route path="/breeds" element={<CatBreedsView />} />
+          <Route path="/favorites" element={<FavoritesView />} />
         </Routes>
       </div>
     </Router>
