@@ -5,7 +5,7 @@ const CatModal = ({ cat, closeModal }) => {
   const [breedInfo, setBreedInfo] = useState(null);
 
   useEffect(() => {
-    if (cat.breeds.length > 0) {
+    if (cat.breeds?.length > 0) {
       fetchBreedInfo(cat.breeds[0].id);
     }
   }, [cat]);
