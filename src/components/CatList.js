@@ -19,6 +19,7 @@ const CatList = ({ breedId, showLoadMore = true }) => {
     try {
       setLoading(true);
       const response = await axios.get(apiUrl, { params });
+      console.log('Fetched cats:', response.data); 
       setCats((prevCats) => [...prevCats, ...response.data]);
     } catch (error) {
       console.log(error);
