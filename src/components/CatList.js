@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import CatModal from './CatModal';
-import './CatList.css';
-
 
 const CatList = ({ breedId, showLoadMore = true }) => {
   const [cats, setCats] = useState([]);
