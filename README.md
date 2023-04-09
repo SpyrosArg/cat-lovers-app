@@ -1,19 +1,21 @@
 Technical Documentation
+
 Overview
-This application is a simple React-based web app that allows users to explore cat breeds, view random cat images, and save their favorite cat images. The application consumes the RESTful API provided by TheCatAPI (https://thecatapi.com/) to retrieve information about cat breeds, images, and breed-specific details.
+This application is a React-based web app that allows users to explore cat breeds, view random cat images, and save their favorite cat images. The application consumes the RESTful API provided by TheCatAPI (https://thecatapi.com/) to retrieve information about cat breeds, images, and breed-specific details.
 
 Component Hierarchy
+
 The application is composed of the following components:
 
-App
-RandomCatsView
-CatBreedsView
-FavoritesView
-CatBreedList
-BreedModal
-CatList
-CatModal
-Favorites 
+1. App
+2. RandomCatsView
+3. CatBreedsView
+4. FavoritesView
+5. CatBreedList
+6. BreedModal
+7. CatList
+8. CatModal
+9. Favorites 
 
 1. App
 This is the root component of the application and contains the app's routing configuration.
@@ -54,8 +56,6 @@ GET https://api.thecatapi.com/v1/breeds/{breedId}: To fetch breed information.
 Error Handling
 The app implements basic error handling by catching errors during API calls and logging them to the console.
 
-Styles
-Styles are applied using CSS classes defined in index.css and App.css.
 
 Application Entry Point
 The application is initialized in index.js, where the App component is rendered inside a React.StrictMode container. This container helps to catch potential problems in the application during the development phase.
