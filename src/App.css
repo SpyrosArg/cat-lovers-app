@@ -51,7 +51,7 @@ nav a:hover,
   padding: 0 16px;
 }
 
-.cat-list {
+.cat-list , .favorite-list{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -59,7 +59,7 @@ nav a:hover,
   margin-bottom: 24px;
 }
 
-.cat-list img ,.breed-images img {
+.cat-list img ,.breed-images img, .favorite-list img {
   width: 240px;
   height: 240px;
   object-fit: cover;
@@ -68,7 +68,7 @@ nav a:hover,
   transition: transform 0.2s;
 }
 
-.cat-list img:hover {
+.cat-list img:hover,.favorite-list img:hover {
   transform: scale(1.03);
 }
 
@@ -80,7 +80,7 @@ nav a:hover,
   margin: 24px 0;
 }
 
-.load-more-cats {
+.load-more-cats, .action-button {
   background-color: #de1b76;
   color: #fff;
   font-size: 16px;
@@ -92,7 +92,7 @@ nav a:hover,
   transition: background-color 0.2s;
 }
 
-.load-more-cats:hover {
+.load-more-cats:hover, .action-button:hover {
   background-color: #191530;
 }
 

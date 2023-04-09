@@ -8,7 +8,7 @@ const CatModal = ({ cat, closeModal }) => {
     if (cat.breeds?.length > 0) {
       fetchBreedInfo(cat.breeds[0].id);
     }
-  }, [cat]);
+  }, [cat]); 
 
   const fetchBreedInfo = async (breedId) => {
     try {
@@ -36,8 +36,8 @@ const CatModal = ({ cat, closeModal }) => {
             <p>{breedInfo.description}</p>
           </div>
         )}
-        <button onClick={addToFavorites}>Add to Favorites</button>
-        <button onClick={closeModal}>Close</button>
+         <button onClick={addToFavorites} aria-label="Add to Favorites">Add to Favorites</button>
+        <button onClick={closeModal} aria-label="Close">Close</button>
       </div>
     </div>
   );

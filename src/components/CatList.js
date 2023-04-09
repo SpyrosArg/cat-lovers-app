@@ -5,7 +5,6 @@ import CatModal from './CatModal';
 const CatList = ({ breedId, showLoadMore = true }) => {
   const [cats, setCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
-  const [, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const fetchCats = useCallback(async (page) => {
@@ -34,11 +33,7 @@ const CatList = ({ breedId, showLoadMore = true }) => {
   }, [fetchCats]);
 
   const loadMoreCats = () => {
-    setCurrentPage((prevPage) => {
-      const nextPage = prevPage + 1;
-      fetchCats(nextPage);
-      return nextPage;
-    });
+    fetchCats(cats.length / 10 + 1);
   };
 
   const handleCatSelect = (cat) => {

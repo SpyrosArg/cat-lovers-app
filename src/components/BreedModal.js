@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CatList from './CatList';
 
 const BreedModal = ({ breedId, breedName, closeModal }) => {
   const [breedImages, setBreedImages] = useState([]);
@@ -16,7 +15,7 @@ const BreedModal = ({ breedId, breedName, closeModal }) => {
     };
 
     fetchBreedImages();
-  }, [breedId]);
+  }, [breedId, breedName]);
 
   return (
     <div className="modal-background" onClick={closeModal}>
