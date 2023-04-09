@@ -42,6 +42,21 @@ Allows users to add the cat to their favorites or close the modal.
 Retrieves and displays the user's favorite cat images from local storage.
 Allows users to remove cat images from their favorites list.
 
+Testing
+
+The application's components are tested using the following test files:
+
+1. BreedModal.test.js
+Tests the BreedModal component for rendering breed images, opening the cat modal on breed image click, and closing the breed modal on the close button click.
+2. CatBreedList.test.js
+Tests the CatBreedList component for rendering cat breeds and opening the breed modal on breed image click.
+3. CatList.test.js
+Tests the CatList component for rendering cat images and opening the cat modal on image click.
+4. CatModal.test.js
+Tests the CatModal component for rendering the cat image and breed information, marking the cat image as a favorite, and closing the cat modal on the close button click.
+5. Favorites.test.js
+Tests the Favorites component for rendering favorite cat images, removing a favorite cat image, and removing all favorite cat images.
+
 Data Flow
 The app's data flow is unidirectional, with parent components passing data to their child components via props. Components that fetch data from the API store the data in their local state, and this data is passed down to child components.
 
