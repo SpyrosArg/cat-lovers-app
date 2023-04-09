@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './CatModal.css';
+
 
 const CatModal = ({ cat, closeModal }) => {
   const [breedInfo, setBreedInfo] = useState(null);
