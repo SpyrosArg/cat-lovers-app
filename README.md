@@ -1,6 +1,7 @@
 Technical Documentation
 
 Overview
+
 This application is a React-based web app that allows users to explore cat breeds, view random cat images, and save their favorite cat images. The application consumes the RESTful API provided by TheCatAPI (https://thecatapi.com/) to retrieve information about cat breeds, images, and breed-specific details.
 
 Component Hierarchy
